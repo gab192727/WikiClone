@@ -5,7 +5,7 @@ from .exceptions import *
 
 WIKI_API_URL = "https://en.wikipedia.org/w/api.php"
 HEADERS = {
-    "User-Agent": "WikiCloneBot/1.0 (contact: gabrielericigostope@gmail.com)",
+    "User-Agent": "WikiCloneBot/1.0 (contact: putyourmail@gmail.com)",
 }
 
 session = requests.Session()
