@@ -1,0 +1,118 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}About Wikicline{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row flex-nowrap">
+        <div class="col-md-9 col-12 ms-3 ms-lg-5 ms-md-4">
+            <h1>About</h1>
+            <h5>Last updated: November 1, 2025</h5>
+
+            <p>
+                <strong>Wikiclone</strong> is a Django-powered Wikipedia clone built as an educational project based on
+                Harvard’s <a href="https://cs50.harvard.edu/web">CS50 Web</a> course. It’s designed to help me (Gabriel Eric Tope) practice and demonstrate Django,
+                parsing, caching, and API handling.
+            </p>
+            <hr>
+
+            <div class="container content-container">
+                <h3>Project Overview</h3>
+                <div class="container">
+                    <ul>
+                        <li><strong>Project name:</strong> Wikiclone</li>
+                        <li><strong>One-line summary:</strong> A Django-powered Wikipedia clone.</li>
+                        <li><strong>Inspiration:</strong> Built on top of CS50’s Wiki project (CS50 Web Programming with
+                            Python & JavaScript).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container content-container mt-4">
+                <h3>Purpose</h3>
+                <div class="container">
+                    <ul>
+                        <li><strong>Why:</strong> To strengthen Django skills (caching, API handling, parsing), and to
+                            learn production patterns.</li>
+                        <li><strong>Who it’s for:</strong> Learners, developers, and anyone curious about how a
+                            wiki-like site is built.</li>
+                        <li><strong>Distribution:</strong> Public on GitHub with walkthrough videos planned on YouTube.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container content-container mt-4">
+                <h3>How It Works</h3>
+                <div class="container">
+                    <p>
+                        The app parses simple wiki-style markup (headers using <code>=</code>), converts sections to
+                        styled HTML,
+                        auto-links internal references, handles disambiguation pages, and renders articles with
+                        Bootstrap containers.
+                    </p>
+
+                    <ul>
+                        <li>Header & section parsing (regex-based)</li>
+                        <li>Auto-linking internal references</li>
+                        <li>Disambiguation handling and special intro layout</li>
+                        <li>Custom section rendering with graceful fallbacks</li>
+                        <li>Random article feature</li>
+                        <li>Server-side caching and API utilities (see <code>utils.py</code>)</li>
+                        <li>Dark mode support in the UI (CSS toggle-ready)</li>
+                    </ul>
+
+                    <p><strong>Technologies used:</strong> Django, Python, regex, HTML/CSS, JavaScript, Bootstrap</p>
+                </div>
+            </div>
+            
+            <div class="container content-container mt-4">
+                <h3>Development Journey</h3>
+                <div class="container">
+                    <ul>
+                        <li><strong>Key learnings:</strong> API caching strategies, robust parsing logic in
+                            <code>utils.py</code>, and safe HTML rendering in templates.</li>
+                        <li><strong>Main challenge:</strong> Parsing and reliable API integration — about half the
+                            development time was spent refining this.</li>
+                        <li><strong>Planned improvements:</strong> Enhanced search & category browsing, UI polish,
+                            category tagging, and more resilient API error handling.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container content-container mt-4">
+                <h3>Credits & Acknowledgments</h3>
+                <div class="container">
+                    <ul>
+                        <li><strong>Creator:</strong> Gabriel Eric Tope</li>
+                        <li><strong>Contributors:</strong> None (solo project)</li>
+                        <li><strong>Libraries & frameworks:</strong> Django, Bootstrap (thanks to the CS50 course for
+                            the original project template)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container content-container mt-4">
+                <h3>Contact & Links</h3>
+                <div class="container">
+                    <ul>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/" target="_blank"
+                                rel="noopener">https://github.com/</a></li>
+                        <li><strong>Email:</strong> <a
+                                href="mailto:gabrielericigostope@gmail.com">gabrielericigostope@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="mt-4">
+
+            <p class="text-muted small">This project is an educational demo. Use and contribution are welcome — check
+                the repository for current status and plans.</p>
+        </div>
+
+
+        {% include 'encyclopedia/partials/_sidebar_appearance.html' %}
+    </div>
+</div>
+
+{% endblock %}

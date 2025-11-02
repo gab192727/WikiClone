@@ -1,0 +1,59 @@
+{% extends "encyclopedia/layout.html" %}
+{% load wiki_filter %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-3 text-break text-wrap">
+  <div class="row flex-nowrap">
+    {% include 'encyclopedia/partials/_sidebar_content.html' %}
+
+    <div class="col-md-8 col-12 px-2 px-lg-3" id="mainContentContainer">
+      {% if article.redirected_from %}
+      <div class="alert alert-secondary small alert-custom">
+        Redirected from <em>{{ article.redirected_from }}</em>
+      </div>
+      {% endif %}
+
+      <div class="fluid-container d-flex align-items-center">
+        <div class="d-md-none me-3 content-dropdown-sm" id="contentDropdownMenu">
+          <div class="dropdown">
+            <button class="btn btn-light content-icon-sm content-button-sm border-0 d-flex align-items-center px-0 py-0"
+              id="contentButtonSM" title="Content Menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list-ul"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+              </svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="contentButtonSM"
+              style="min-width: 220px; max-height: 400px;overflow-y: auto;">
+              <div class="ms-1" id="contentMenuSM">
+                <h5 class="fw-bold mt-2 mt-lg-3">Contents</h5>
+                <hr class="side-app-bar">
+                <ul class="list-unstyled text-decoration-none gap-3">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 class="mb-0">{{ article.title }}</h1>
+      </div>
+
+      <article>
+        {{ article|wiki_format|safe }}
+      </article>
+      <hr>
+      {% if article.is_disambiguation %}
+      <div class="container">
+        <p class="fs-6 my-0">
+          This disambiguation page lists articles associated with the title <em>{{ article.title }}</em>.
+        </p>
+      </div>
+      {% endif %}
+
+    </div>
+    {% include 'encyclopedia/partials/_sidebar_appearance.html' %}
+  </div>
+
+</div>
+{% endblock %}

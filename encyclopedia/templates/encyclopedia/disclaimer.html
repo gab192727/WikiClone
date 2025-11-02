@@ -1,0 +1,33 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}Disclaimer{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+  <div class="row flex-nowrap">
+
+    <div class="col-md-9 col-12 ms-3 ms-lg-5 ms-md-4">
+      <h1>Disclaimer</h1>
+      <hr>
+      <p>
+        This Application is a student-built demo project created in Django for learning and educational purposes. It is
+        not
+        affiliated with, endorsed by, or officially connected to the Wikimedia Foundation, Wikipedia, or Wiktionary.
+      </p>
+      <p>
+        While the Application retrieves content from Wikipedia/Wiktionary through publicly accessible APIs, the
+        developer does
+        not guarantee the accuracy, completeness, or currency of any information displayed. Use of the Application and
+        reliance on its content is at your own risk.
+      </p>
+      <p>
+        Copyright, trademarks, and other intellectual property rights remain with their respective owners. By using the
+        Application, you accept full responsibility for your use of the site and its Content.
+      </p>
+    </div>
+
+  {% include 'encyclopedia/partials/_sidebar_appearance.html' %}
+  </div>
+</div>
+
+{% endblock %}

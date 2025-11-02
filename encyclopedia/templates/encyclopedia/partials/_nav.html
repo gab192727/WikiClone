@@ -1,0 +1,117 @@
+{% load static %}
+<nav class="navbar navbar-expand-md navbar-light bg-light mx-3 mx-lg-5 flex-nowrap noselect" id="navBar">
+  <a class="navbar-brand d-flex align-items-center me-1 me-lg-3" href="{% url 'index' %}" id="navLogo">
+    <!-- Brand<img src="{% static 'encyclopedia/images/logo.svg' %}" class="nav-logo" alt="Wikipedia Logo">  -->
+    <svg class="nav-logo" viewBox="0 0 48 48">
+      <use href="#nav-logo" />
+    </svg>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h1 class="nav-logo-name">W<span class="small-caps">IKICLON</span>E</h1>
+      <p class="nav-logo-description mb-0">A Django-Powered Wiki</p>
+    </div>
+  </a>
+  <div class="d-none d-md-block container-fluid" id="navFormContainer">
+    <form class="search-form nav-search-form" action="{% url 'search_redirect' %}" method="get" role="search"
+      aria-label="search-container">
+      <div class="search-bar px-2" id="searchBar">
+        <input type="search" name="title" class="search-query" id="search-query"
+          placeholder="Search Wiki or type a topic" autofocus maxlength="300" title="Search Wiki or type a topic"  required>
+        <button class="search-button" type="submit">
+          <span class="search-icon">
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+              height="24">
+              <path
+                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+              </path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="search-container position-relative">
+        <ul class="suggestion-list list-group position-absolute w-100 d-none" id="suggestionList">
+          <hr class="suggestion-divider">
+        </ul>
+      </div>
+    </form>
+  </div>
+  <div class="d-block d-md-none ms-auto me-3 my-1">
+    <div class="d-flex justify-content-center gap-3 align-items-center">
+      <button class="search-icon-sm search-button-sm" id="searchButtonSm" title="Search for articles">
+        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+          height="24">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 
+                      6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5
+                      4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5
+                      S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+        </svg>
+      </button>
+      <div class="dropdown">
+        <button class="btn btn-light appearance-button-sm px-2 py-2 border-0 d-flex align-items-center" type="button"
+          id="appearanceDropdownNav" data-bs-toggle="dropdown" aria-expanded="false" title="Change theme and font size">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+          </svg>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="appearanceDropdownNav"
+          style="min-width: 220px;">
+          <h6 class="fw-bold mb-2">Appearance</h6>
+
+          <fieldset class="mb-3">
+            <legend class="fw-light fs-6 mb-1">Theme</legend>
+            <hr class="side-app-bar my-1">
+            <div>
+              <input type="radio" id="theme-light-sm" name="theme-mobile" value="light" checked>
+              <label for="theme-light-sm">Light</label>
+            </div>
+            <div>
+              <input type="radio" id="theme-dark-sm" name="theme-mobile" value="dark">
+              <label for="theme-dark-sm">Dark</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="mb-2">
+            <legend class="fw-light fs-6 mb-1">Font Size</legend>
+            <hr class="side-app-bar my-1">
+            <div>
+              <input type="radio" id="font-small-sm" name="fontSize-mobile" value="1rem" checked>
+              <label for="font-small-sm">Small</label>
+            </div>
+            <div>
+              <input type="radio" id="font-medium-sm" name="fontSize-mobile" value="1.2rem">
+              <label for="font-medium-sm">Medium</label>
+            </div>
+            <div>
+              <input type="radio" id="font-large-sm" name="fontSize-mobile" value="1.4rem">
+              <label for="font-large-sm">Large</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="navbar-toggler px-2 py-2 border-0" type="button" id="hamburgerDropdown" data-bs-toggle="dropdown"
+      aria-expanded="false" title="Nav Items">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerDropdown">
+      <li><a class="dropdown-item" href="{% url 'random_article' %}">Random Article</a></li>
+      <li><a class="dropdown-item" href="#">Categories</a></li>
+      <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+    </ul>
+  </div>
+
+  <div class="d-md-block d-none ms-auto d-flex align-items-center">
+    <ul class=" d-flex flex-row flex-nowrap text-nowrap list-unstyled gap-3 mb-0">
+      <li class="nav-item"><a class="nav-link" href="{% url 'random_article' %}"
+          title="Redirects you to any random article">Random Article</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" title="Look for word categories">Categories</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" title="What this website is all about">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>

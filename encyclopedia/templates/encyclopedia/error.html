@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}{{ article.title }} - WikiClone{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row flex-nowrap">
+        <div class="col-md-10 col-12 px-4 px-lg-5">
+            <div class="container content-container">
+                <h1 class="fw-bold">{{ http_status }}</h1>
+                <hr class="side-app-bar">
+                <p class="intro-text" style="font-size: 1rem;">
+                    <span class="fw-bold">{{ title }}</span> — {{ error }}
+                </p>
+            </div>
+        </div>
+        {% include 'encyclopedia/partials/_sidebar_appearance.html' %}
+    </div>
+
+</div>
+{% endblock %}
